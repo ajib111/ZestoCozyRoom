@@ -21,8 +21,8 @@ function Ajib() {
       onClick={handleClick}
 style={{
   position: "absolute",
-  bottom: "0%",
-  right: "-25%",
+  bottom: "-4%",
+  right: "-20%",
   width: "320px",
   zIndex: 10,
   cursor: "pointer",
