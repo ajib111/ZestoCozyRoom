@@ -57,11 +57,13 @@ function Scooter() {
     <img
       src={getGif()}
       alt="Scooter"
+      draggable="false"
       onClick={wakeScooter}
       onTouchStart={handlePetStart}
       onTouchEnd={handlePetEnd}
       onMouseEnter={handlePetStart}
       onMouseLeave={handlePetEnd}
+      onContextMenu={(e) => e.preventDefault()}
       style={{
         position: "absolute",
 
@@ -74,8 +76,11 @@ function Scooter() {
         // Better mobile size
         width: "150px",
 
-        // Interaction
+        // Prevent iPhone image popup
         userSelect: "none",
+        WebkitUserSelect: "none",
+        WebkitTouchCallout: "none",
+
         cursor: "pointer",
 
         // Smooth feeling
