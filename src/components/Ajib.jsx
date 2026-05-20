@@ -109,25 +109,31 @@ function Ajib() {
       )}
 
       {/* Character */}
-      <img
-        src={currentImage}
-        alt="Ajib"
-        onClick={handleClick}
-        style={{
-          position: "absolute",
-          bottom: "-4%",
-          right: "-20%",
-          width: "320px",
+<img
+  src={currentImage}
+  alt="Ajib"
+  onClick={handleClick}
+  draggable="false"
+  onContextMenu={(e) => e.preventDefault()}
+  style={{
+    position: "absolute",
+    bottom: "-4%",
+    right: "-20%",
+    width: "320px",
 
-          zIndex: 10,
+    zIndex: 10,
 
-          cursor: "pointer",
+    cursor: "pointer",
 
-          userSelect: "none",
+    userSelect: "none",
+    WebkitUserSelect: "none",
+    WebkitTouchCallout: "none",
 
-          transition: "0.3s ease",
-        }}
-      />
+    WebkitUserDrag: "none",
+
+    transition: "0.3s ease",
+  }}
+/>
     </>
   );
 }
