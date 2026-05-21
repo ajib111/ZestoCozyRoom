@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-import sleepingGif from "../assets/ScooterSleeping.gif";
-import awakeGif from "../assets/ScooterAwake.gif";
-import pettedGif from "../assets/ScooterPetted.gif";
+import sleepingGif from "../assets/ScooterSleeping.webp";
+import awakeGif from "../assets/ScooterAwake.webp";
+import pettedGif from "../assets/ScooterPetted.webp";
 
 function Scooter() {
   const [mood, setMood] = useState("sleeping");
@@ -68,13 +68,13 @@ function Scooter() {
         position: "absolute",
 
         // Better room placement
-        bottom: "40px",
-        left: "25%",
+        bottom: "20px",
+        left: "18%",
 
         transform: "translateX(-50%)",
 
         // Better mobile size
-        width: "150px",
+        width: "125px",
 
         // Prevent iPhone image popup
         userSelect: "none",

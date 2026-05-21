@@ -21,7 +21,7 @@ function Ajib() {
 
     "I really love listening to Hozier 🎧",
 
-    "Work Song by Hozier has been my favorite lately",
+    "Work Song by Hozier is my favorite",
 
     "Scooter honestly sleeps all day 😭",
 
@@ -31,7 +31,7 @@ function Ajib() {
 
     "Thanks for visiting my little world :)",
     
-    "One day, I wanna play Like Real People Do perfectly on Guitar 🎸",
+    "I am learing Like Real Peopleon Guitar 🎸",
   ];
 
   // Random talking every few seconds
@@ -80,24 +80,24 @@ function Ajib() {
           style={{
             position: "absolute",
 
-            bottom: "360px",
-            right: "140px",
+            bottom: "365px",
+            right: "111px",
 
-            background: "rgba(0,0,0,0.25)",
+            background: "rgba(34, 33, 33, 0.25)",
 
             color: "white",
 
-            padding: "10px 14px",
+            padding: "9px 12px",
 
-            borderRadius: "18px",
+            borderRadius: "15px",
 
-            backdropFilter: "blur(8px)",
+            backdropFilter: "blur(1px)",
 
-            fontSize: "13px",
+            fontSize: "10px",
 
-            maxWidth: "190px",
+            maxWidth: "180px",
 
-            lineHeight: "1.4",
+            lineHeight: "1.3",
 
             zIndex: 20,
 

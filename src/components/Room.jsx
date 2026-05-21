@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-import dayBg from "../assets/DayBackgroundMobile.png";
-import nightBg from "../assets/NightBackgroundMobile.png";
+import dayBg from "../assets/DayBackgroundMobile.webp";
+import nightBg from "../assets/NightBackgroundMobile.webp";
 
 import Ajib from "./Ajib";
+
+
 
 function Room() {
   const [isNight, setIsNight] = useState(false);
@@ -22,11 +24,14 @@ function Room() {
         onClick={() => setIsNight(!isNight)}
         className="absolute top-5 right-5 bg-black/40 text-white px-4 py-2 rounded-full backdrop-blur-md z-50"
       >
-        {isNight ? "☀️ Day" : "🌙 Night"}
+        {isNight ? "🌙 Night" : "☀️ Day "}
       </button>
 
             {/* Character */}
       <Ajib />
+
+      
+     
     </div>
   );
 }

@@ -6,6 +6,7 @@ import MusicPlayer from "./components/MusicPlayer";
 
 
 
+
 function App() {
   const [isNight, setIsNight] = useState(false);
 
@@ -19,8 +20,6 @@ function App() {
         {/* Music Player */}
         <MusicPlayer />
 
-
-      
     </>
   );
 }
