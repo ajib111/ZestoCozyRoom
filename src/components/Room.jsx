@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import dayBg from "../assets/DayBackgroundMobile.webp";
 import nightBg from "../assets/NightBackgroundMobile.webp";
+import letter from"../assets/Letter.png"
 
 import Ajib from "./Ajib";
 
@@ -26,6 +27,31 @@ function Room() {
       >
         {isNight ? "🌙 Night" : "☀️ Day "}
       </button>
+
+      <img
+      src={letter}
+      alt="Letter"
+      onClick={() => setIsLetterOpen(true)}
+      style={{
+        position: "absolute",
+
+        bottom: "45%",
+        left: "0%",
+
+        width: "85px",
+
+        zIndex: 15,
+
+        cursor: "pointer",
+
+        transition: "0.3s ease",
+
+        userSelect: "none",
+        WebkitUserSelect: "none",
+        WebkitTouchCallout: "none",
+        WebkitUserDrag: "none",
+      }}
+/>
 
             {/* Character */}
       <Ajib />
