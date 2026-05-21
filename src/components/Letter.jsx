@@ -8,11 +8,17 @@ function Letter() {
 
   const [message, setMessage] = useState("");
 
+  const [isSending, setIsSending] = useState(false);
+
   const sendLetter = () => {
     if (!message.trim()) {
       alert("Write something first 😭");
       return;
     }
+
+    if (isSending) return;
+
+    setIsSending(true);
 
     emailjs
       .send(
@@ -29,11 +35,15 @@ function Letter() {
         setMessage("");
 
         setIsLetterOpen(false);
+
+        setIsSending(false);
       })
       .catch((error) => {
         console.log(error);
 
         alert("Something went wrong 😭");
+
+        setIsSending(false);
       });
   };
 
@@ -173,8 +183,10 @@ function Letter() {
                 marginTop: "15px",
               }}
             >
+              {/* Send Button */}
               <button
                 onClick={sendLetter}
+                disabled={isSending}
                 style={{
                   flex: 1,
 
@@ -184,18 +196,25 @@ function Letter() {
 
                   border: "none",
 
-                  background: "#6b8f71",
+                  background: isSending
+                    ? "#9ca3af"
+                    : "#6b8f71",
 
                   color: "white",
 
                   fontWeight: "bold",
 
-                  cursor: "pointer",
+                  cursor: isSending
+                    ? "not-allowed"
+                    : "pointer",
+
+                  opacity: isSending ? 0.7 : 1,
                 }}
               >
-                Send
+                {isSending ? "Sending..." : "Send"}
               </button>
 
+              {/* Close Button */}
               <button
                 onClick={() => setIsLetterOpen(false)}
                 style={{
