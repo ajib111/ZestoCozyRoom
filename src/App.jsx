@@ -1,50 +1,22 @@
+import { useState } from "react";
+
 import Room from "./components/Room";
 import Scooter from "./components/Scooter";
 import MusicPlayer from "./components/MusicPlayer";
 
 function App() {
+  const [isNight, setIsNight] = useState(false);
+
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
+    <>
+      <Room />
 
-        background: "#000",
+      {/* Scooter Cat */}
+      <Scooter />
 
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-
-        overflow: "hidden",
-      }}
-    >
-      {/* Zesto Phone Container */}
-      <div
-        style={{
-          width: "375px",
-          height: "667px",
-
-          position: "relative",
-
-          overflow: "hidden",
-
-          borderRadius: "30px",
-
-          background: "black",
-
-          boxShadow: "0 0 40px rgba(0,0,0,0.5)",
-        }}
-      >
-        {/* Room */}
-        <Room />
-
-        {/* Scooter */}
-        <Scooter />
-
-        {/* Music Player */}
-        <MusicPlayer />
-      </div>
-    </div>
+      {/* Music Player */}
+      <MusicPlayer />
+    </>
   );
 }
 
