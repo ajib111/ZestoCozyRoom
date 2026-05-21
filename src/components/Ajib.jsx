@@ -15,23 +15,23 @@ function Ajib() {
   const talkingImages = [talking1, talking2, talking3];
 
   const messages = [
-    "Hello, welcome to Zesto ✨",
+    "Hello, welcome to Zesto",
 
-    "Have you met my cat, Scooter? 🐈",
+    "Have you met my cat, Scooter?",
 
-    "I really love listening to Hozier 🎧",
+    "I really love listening to Hozier ",
 
     "Work Song by Hozier is my favorite",
 
-    "Scooter honestly sleeps all day 😭",
+    "Scooter honestly sleeps all day ",
 
     "I could listen to Cherry Wine forever",
 
-    "This room feels so much better at night 🌙",
+    "This room feels so much better at night ",
 
     "Thanks for visiting my little world :)",
     
-    "I am learing Like Real Peopleon Guitar 🎸",
+    "I am learing Like Real People Do on Guitar ",
   ];
 
   // Random talking every few seconds
@@ -83,7 +83,7 @@ function Ajib() {
             bottom: "365px",
             right: "111px",
 
-            background: "rgba(34, 33, 33, 0.25)",
+            background: "rgba(15, 15, 15, 0.25)",
 
             color: "white",
 
@@ -91,7 +91,7 @@ function Ajib() {
 
             borderRadius: "15px",
 
-            backdropFilter: "blur(1px)",
+            backdropFilter: "blur(5px)",
 
             fontSize: "10px",
 
