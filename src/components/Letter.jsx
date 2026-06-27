@@ -1,10 +1,18 @@
 import emailjs from "@emailjs/browser";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import letter from "../assets/Letter.png";
+import letterOpen from "../assets/sounds/letteropen.mp3";
+import letterSend from "../assets/sounds/lettersend.mp3";
 
 function Letter() {
   const [isLetterOpen, setIsLetterOpen] = useState(false);
+
+    const openSound = useRef(new Audio(letterOpen));
+    const sendSound = useRef(new Audio(letterSend));
+
+    openSound.current.volume = 0.35;
+    sendSound.current.volume = 0.35;
 
   const [message, setMessage] = useState("");
 
@@ -30,7 +38,7 @@ function Letter() {
         "ezrTxEfoDWuIuXNUG"
       )
       .then(() => {
-        alert("Letter sent successfully ✨");
+        alert("Letter sent successfully ");
 
         setMessage("");
 
@@ -72,7 +80,12 @@ function Letter() {
       <img
         src={letter}
         alt="Letter"
-        onClick={() => setIsLetterOpen(true)}
+        onClick={() => {
+          openSound.current.currentTime = 0;
+          openSound.current.play();
+
+          setIsLetterOpen(true);
+        }}
         style={{
           position: "absolute",
 
@@ -146,7 +159,7 @@ function Letter() {
                 fontWeight: "bold",
               }}
             >
-              Write a Letter ✨
+              Write a Letter 
             </h2>
 
             <textarea
