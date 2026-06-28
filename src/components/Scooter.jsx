@@ -3,12 +3,41 @@ import { useEffect, useRef, useState } from "react";
 import sleepingGif from "../assets/ScooterSleeping.webp";
 import awakeGif from "../assets/ScooterAwake.webp";
 import pettedGif from "../assets/ScooterPetted.webp";
+import scooterMeow from "../assets/sounds/ScooterMeow.mp3";
+import scooterSnoring from "../assets/sounds/ScooterSnoring.mp3";
+import scooterPetted from "../assets/sounds/ScooterPetted.mp3";
 
 function Scooter() {
   const [mood, setMood] = useState("sleeping");
+  // Scooter Sounds
+const meowSound = useRef(new Audio(scooterMeow));
+const snoreSound = useRef(new Audio(scooterSnoring));
+const petSound = useRef(new Audio(scooterPetted));
+
+// Volume
+meowSound.current.volume = 0.35;
+
+snoreSound.current.loop = true;
+snoreSound.current.volume = 0.25;
+
+petSound.current.volume = 0.35;
 
   // Timer for petting
   const touchTimer = useRef(null);
+
+  useEffect(() => {
+  if (mood === "sleeping") {
+    snoreSound.current.play();
+  } else {
+    snoreSound.current.pause();
+    snoreSound.current.currentTime = 0;
+  }
+
+  if (mood === "petted") {
+    petSound.current.currentTime = 0;
+    petSound.current.play();
+  }
+}, [mood]);
 
   // Get correct gif
   const getGif = () => {
@@ -19,8 +48,13 @@ function Scooter() {
 
   // Tap / click = wake up
   const wakeScooter = () => {
-    setMood("awake");
-  };
+    if (mood === "sleeping") {
+      meowSound.current.currentTime = 0;
+      meowSound.current.play();
+  }
+
+  setMood("awake");
+};
 
   // Hold touch or hover = pet
   const handlePetStart = () => {

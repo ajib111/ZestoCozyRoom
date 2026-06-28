@@ -41,18 +41,7 @@ function Room() {
       dayAudio.current.play();
     }
   }, [isNight]);
-  const [isMuted, setIsMuted] = useState(false);
-    useEffect(() => {
-  if (isMuted) {
-    chimeSound.current.volume = 0;
-    dayAudio.current.volume = 0;
-    cricketAudio.current.volume = 0;
-  } else {
-    chimeSound.current.volume = 0.08;
-    dayAudio.current.volume = 0.8;
-    cricketAudio.current.volume = 1;
-  }
-}, [isMuted]);
+
 
   // Toggle
   const toggleDayNight = () => {
@@ -95,12 +84,7 @@ function Room() {
         >
           {isNight ? "🌙 Night" : "☀️ Day"}
         </button>
-        <button
-          onClick={() => setIsMuted((prev) => !prev)}
-          className="absolute top-5 left-5 bg-black/40 text-white px-4 py-2 rounded-full backdrop-blur-md z-50"
-        >
-          {isMuted ? "🔇" : "🔊"}
-        </button>
+        
 
         {/* Letter */}
         <Letter />

@@ -38,6 +38,8 @@ function Letter() {
         "ezrTxEfoDWuIuXNUG"
       )
       .then(() => {
+        sendSound.current.currentTime = 0;
+        sendSound.current.play();
         alert("Letter sent successfully ");
 
         setMessage("");
