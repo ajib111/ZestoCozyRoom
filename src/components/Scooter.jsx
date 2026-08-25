@@ -89,6 +89,7 @@ petSound.current.volume = 0.35;
 
   return (
     <img
+      className="zesto-scooter"
       src={getGif()}
       alt="Scooter"
       draggable="false"

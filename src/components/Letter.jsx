@@ -5,8 +5,8 @@ import letter from "../assets/Letter.png";
 import letterOpen from "../assets/sounds/letteropen.mp3";
 import letterSend from "../assets/sounds/lettersend.mp3";
 
-function Letter() {
-  const [isLetterOpen, setIsLetterOpen] = useState(false);
+function Letter({ defaultOpen = false, hideTrigger = false, onClose }) {
+  const [isLetterOpen, setIsLetterOpen] = useState(defaultOpen);
 
     const openSound = useRef(new Audio(letterOpen));
     const sendSound = useRef(new Audio(letterSend));
@@ -17,6 +17,11 @@ function Letter() {
   const [message, setMessage] = useState("");
 
   const [isSending, setIsSending] = useState(false);
+
+  const closeLetter = () => {
+    setIsLetterOpen(false);
+    onClose?.();
+  };
 
   const sendLetter = () => {
     if (!message.trim()) {
@@ -44,9 +49,8 @@ function Letter() {
 
         setMessage("");
 
-        setIsLetterOpen(false);
-
         setIsSending(false);
+        closeLetter();
       })
       .catch((error) => {
         console.log(error);
@@ -79,54 +83,56 @@ function Letter() {
       </style>
 
       {/* Letter */}
-      <img
-        src={letter}
-        alt="Letter"
-        onClick={() => {
-          openSound.current.currentTime = 0;
-          openSound.current.play();
+      {!hideTrigger && (
+        <img
+          src={letter}
+          alt="Letter"
+          onClick={() => {
+            openSound.current.currentTime = 0;
+            openSound.current.play();
 
-          setIsLetterOpen(true);
-        }}
-        style={{
-          position: "absolute",
+            setIsLetterOpen(true);
+          }}
+          style={{
+            position: "absolute",
 
-          bottom: "45%",
-          left: "0%",
+            bottom: "45%",
+            left: "0%",
 
-          width: "70px",
+            width: "70px",
 
-          zIndex: 15,
+            zIndex: 15,
 
-          cursor: "pointer",
+            cursor: "pointer",
 
-          animation: "float 3s ease-in-out infinite",
+            animation: "float 3s ease-in-out infinite",
 
-          filter:
-            "drop-shadow(0 0 8px rgba(255,220,160,0.25))",
+            filter:
+              "drop-shadow(0 0 8px rgba(255,220,160,0.25))",
 
-          transition: "0.3s ease",
+            transition: "0.3s ease",
 
-          imageRendering: "auto",
+            imageRendering: "auto",
 
-          userSelect: "none",
-          WebkitUserSelect: "none",
-          WebkitTouchCallout: "none",
-          WebkitUserDrag: "none",
-        }}
-      />
+            userSelect: "none",
+            WebkitUserSelect: "none",
+            WebkitTouchCallout: "none",
+            WebkitUserDrag: "none",
+          }}
+        />
+      )}
 
       {/* Modal */}
       {isLetterOpen && (
         <div
-          onClick={() => setIsLetterOpen(false)}
+          onClick={closeLetter}
           style={{
             position: "absolute",
             inset: 0,
 
-            background: "rgba(0,0,0,0.45)",
+            background: "transparent",
 
-            backdropFilter: "blur(4px)",
+            backdropFilter: "none",
 
             zIndex: 100,
 
@@ -231,7 +237,7 @@ function Letter() {
 
               {/* Close Button */}
               <button
-                onClick={() => setIsLetterOpen(false)}
+                onClick={closeLetter}
                 style={{
                   flex: 1,
 
